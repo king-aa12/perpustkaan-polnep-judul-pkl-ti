@@ -1,4 +1,5 @@
 import streamlit as st
+import qrcode
 import json
 import pandas as pd
 from PIL import Image
