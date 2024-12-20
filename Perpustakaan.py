@@ -42,7 +42,7 @@ Portal Ini Untuk Mencari Judul Buku Laporan PKL Prodi Teknik Informatika Jurusan
 """)
 
 # Menambahkan QR code pada sidebar
-st.sidebar.image("laporan.png", caption="Untuk Mengakses Portal Ini Gunakan QR Code Diatas.", use_container_width=True)
+st.sidebar.image("C:\TUGAS MAKUL ALGORITMA PEMROGRAMAN\TUGAS AKHIR SEMESTER\KELOMPOK 2\qrcode.png", caption="Untuk Mengakses Portal Ini Gunakan QR Code Diatas.", use_container_width=True)
 
 # Judul aplikasi
 st.title("Portal Pencarian Judul Laporan PKL Prodi Teknik Informatika Jurusan Teknik Elektro Politeknik Negeri Pontianak")
