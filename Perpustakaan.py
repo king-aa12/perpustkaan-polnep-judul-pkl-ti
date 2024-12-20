@@ -7,6 +7,21 @@ from io import BytesIO
 import os
 os.system('cls')
 
+# Fungsi untuk membuat QR code
+def buat_qr_code(url):
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(url)
+    qr.make(fit=True)
+    img = qr.make_image(fill='black', back_color='white')
+    buffer = BytesIO()
+    img.save(buffer, format="PNG")
+    buffer.seek(0)
+    return buffer
 #Fungsi untuk membaca data dari file JSON
 def baca_data_dari_file(nama_file):
     if os.path.exists(nama_file):
@@ -42,13 +57,16 @@ Portal Ini Untuk Mencari Judul Buku Laporan PKL Prodi Teknik Informatika Jurusan
 """)
 
 # Menambahkan QR code pada sidebar
-st.sidebar.image("C:\TUGAS MAKUL ALGORITMA PEMROGRAMAN\TUGAS AKHIR SEMESTER\KELOMPOK 2\qrcode.png", caption="Untuk Mengakses Portal Ini Gunakan QR Code Diatas.", use_container_width=True)
+url_aplikasi = "https://perpustkaan-polnep-judul-pkl-ti.streamlit.app/"
+qr_code = buat_qr_code(url_aplikasi)
+qr_image = Image.open(qr_code)
+st.sidebar.image(qr_image, caption="Untuk Mengakses Portal Ini Gunakan QR Code Diatas.", use_container_width=True)
 
 # Judul aplikasi
 st.title("Portal Pencarian Judul Laporan PKL Prodi Teknik Informatika Jurusan Teknik Elektro Politeknik Negeri Pontianak")
 
 # Nama file JSON yang ingin dibaca
-nama_file = 'datajsonbuku.json'
+nama_file = 'C://TUGAS MAKUL ALGORITMA PEMROGRAMAN//KELOMPOK 2//datajsonbuku.json'
 
 # Membaca data dari file JSON
 data_perpustakaan = baca_data_dari_file(nama_file)
