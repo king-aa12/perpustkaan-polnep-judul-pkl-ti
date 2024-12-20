@@ -1,6 +1,9 @@
 import streamlit as st
+import qrcode
 import json
 import pandas as pd
+from PIL import Image
+from io import BytesIO
 import os
 os.system('cls')
 
@@ -39,7 +42,7 @@ Portal Ini Untuk Mencari Judul Buku Laporan PKL Prodi Teknik Informatika Jurusan
 """)
 
 # Menambahkan QR code pada sidebar
-#st.sidebar.image("qrcodeperpus.png", caption="Untuk Mengakses Portal Ini Gunakan QR Code Diatas.", use_container_width=True)
+st.sidebar.image("laporan.png", caption="Untuk Mengakses Portal Ini Gunakan QR Code Diatas.", use_container_width=True)
 
 # Judul aplikasi
 st.title("Portal Pencarian Judul Laporan PKL Prodi Teknik Informatika Jurusan Teknik Elektro Politeknik Negeri Pontianak")
